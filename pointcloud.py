@@ -1,17 +1,19 @@
 # -*- encoding: utf-8 -*-
-from ase.data.pubchem import pubchem_atoms_conformer_search
+from ase.data.pubchem import pubchem_conformer_search
 
 
 def main():
     try:
-        compounds = pubchem_atoms_conformer_search(cid='31525001')
+        compounds = pubchem_conformer_search(cid=31525001)
         for conformer in compounds:
-            print(conformer.symbols)
-            print(conformer.positions)
-            print(conformer.numbers)
+            # print(conformer.data)
+            atoms = conformer.atoms
+            print(atoms.symbols)
+            print(atoms.positions)
+            print(atoms.numbers)
             points = []
-            for step, id in enumerate(conformer.numbers):
-                point = {id: conformer.positions[step]}
+            for step, number in enumerate(atoms.numbers):
+                point = {number: atoms.positions[step]}
                 points.append(point)
             print(points)
     except ValueError:
