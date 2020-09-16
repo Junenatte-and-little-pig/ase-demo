@@ -2,6 +2,7 @@
 import matplotlib.pyplot as plt
 from ase.data.pubchem import pubchem_conformer_search
 from sklearn.decomposition import PCA
+import numpy as np
 
 colors = {1: (1,1,1), 6: (0.5,0.5,0.5), 7: (0,0,1), 8: (1,1,0), 16: (1,0,0)}
 
